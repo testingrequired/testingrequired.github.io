@@ -86,7 +86,7 @@ git investigate
 # - contributors: A sorted list of the most active committers
 # - bugs: A sorted list of files with commits related to bugs or fixes
 # - velocity: A sorted list of commit counts by month
-# - reverts-by-month: A list of revert commit count by month
+# - firefighting: A list commits relating to reverts, hotfixes, emergencies, or rollbacks
 # - credit-to: Link to the original blog post detailing these git commands
 
 # Environment Variables
