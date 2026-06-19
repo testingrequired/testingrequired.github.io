@@ -78,7 +78,7 @@ cd myproject
 
 git investigate
 
-# Usage: git-investigate {churn|contributors|bugs|velocity|reverts-by-month|credit-to}
+# Usage: git-investigate {churn|contributors|bugs|velocity|firefighting|credit-to}
 #
 # Commands
 #
@@ -92,7 +92,7 @@ git investigate
 # Environment Variables
 #
 # LIMIT -- Limits the number of results in 'churn' and 'bugs'
-# SINCE -- Filters result by a natural time string e.g. 1 year ago in 'churn' and 'reverts-by-month'
+# SINCE -- Filters result by a natural time string e.g. 1 year ago in 'churn' and 'firefighting'
 
 SINCE='10 years ago' LIMIT=10 git investigate churn
 
