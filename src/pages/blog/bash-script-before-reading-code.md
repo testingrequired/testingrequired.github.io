@@ -28,14 +28,24 @@ since=${SINCE:-1 year ago}
 
 echoerr() { printf "%s\n" "$*" >&2; }
 
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echoerr "Error: This is not a git repo: $PWD"
+    exit 1
+fi
+
 if [ "$FIRST_ARG" = "churn" ]; then
     echoerr "A sorted list of most changed files in a given period of time"
+    echoerr ""
+    echoerr "Since: $since"
+    echoerr "Limit: $limit"
     echoerr ""
     git log --format=format: --name-only --since="$since" | sort | uniq -c | sort -nr | head -$limit
 elif [ "$FIRST_ARG" = "contributors" ]; then
     git shortlog -sn --no-merges
 elif [ "$FIRST_ARG" = "bugs" ]; then
     echoerr "A sorted list of files with commits related to bugs or fixes"
+    echoerr ""
+    echoerr "Limit: $limit"
     echoerr ""
     git log -i -E --grep="fix|bug|broken" --name-only --format='' | sort | uniq -c | sort -nr | head -$limit
 elif [ "$FIRST_ARG" = "velocity" ]; then
@@ -44,6 +54,8 @@ elif [ "$FIRST_ARG" = "velocity" ]; then
      git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c
 elif [ "$FIRST_ARG" = "firefighting" ]; then
     echoerr "A list commits relating to reverts, hotfixes, emergencies, or rollbacks"
+    echoerr ""
+    echoerr "Since: $since"
     echoerr ""
      git log --oneline --since="$since" | grep -iE 'revert|hotfix|emergency|rollback'
 elif [ "$FIRST_ARG" = "credit-to" ]; then
