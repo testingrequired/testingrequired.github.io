@@ -79,25 +79,25 @@ cd myproject
 git investigate
 
 # Usage: git-investigate {churn|contributors|bugs|velocity|reverts-by-month|credit-to}
-
+#
 # Commands
-
+#
 # - churn: A sorted list of most changed files in a given period of time
 # - contributors: A sorted list of the most active committers
 # - bugs: A sorted list of files with commits related to bugs or fixes
 # - velocity: A sorted list of commit counts by month
 # - firefighting: A list commits relating to reverts, hotfixes, emergencies, or rollbacks
 # - credit-to: Link to the original blog post detailing these git commands
-
+#
 # Environment Variables
-
+#
 # LIMIT -- Limits the number of results in 'churn' and 'bugs'
 # SINCE -- Filters result by a natural time string e.g. 1 year ago in 'churn' and 'reverts-by-month'
 
 SINCE='10 years ago' LIMIT=10 git investigate churn
 
 # A sorted list of most changed files in a given period of time
-
+#
 #   75
 #   17 src/pages/about.js
 #   14 src/layouts/index.js
@@ -117,7 +117,7 @@ git investigate contributors
 LIMIT=10 git investigate bugs
 
 # A sorted list of files with commits related to bugs or fixes
-
+#
 #    7 src/pages/about.js
 #    4 src/layouts/index.js
 #    3 src/pages/talks.js
@@ -132,7 +132,7 @@ LIMIT=10 git investigate bugs
 git investigate velocity
 
 # A sorted list of commit counts by month
-
+#
 #    1 2018-07
 #    2 2019-08
 #    7 2019-11
@@ -147,12 +147,12 @@ git investigate velocity
 SINCE='10 years ago' git investigate firefighting
 
 # A list commits relating to reverts, hotfixes, emergencies, or rollbacks
-
+#
 # e60c355 Revert "Upgrade npm dependencies"
 
 git investigate credit-to
 
 # Credit To:
-
+#
 # https://piechowski.io/post/git-commands-before-reading-code/
 ```
