@@ -6,7 +6,7 @@ date: '2026-06-19'
 
 I saw this awesome blog post [The Git Commands I Run Before Reading Any Code](https://piechowski.io/post/git-commands-before-reading-code/) detailing some git commands to help you navigate a new code base. Well, I decided to make a wrapper bash script around those commands.
 
-## The Script
+<h2 id="the-script">The Script <a href="#the-script">🔗</a></h2>
 
 Create a file `git-investigate` (no extension), mark it as executable (`chmod +x git-investigate`), and then add `git-investigate` to your `PATH`.
 
@@ -71,7 +71,7 @@ fi
 
 ```
 
-## Usage
+<h2 id="usage">Usage <a href="#usage">🔗</a></h2>
 
 ```bash
 cd myproject
