@@ -2,6 +2,12 @@ import React from 'react';
 import Layout from '../layouts';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { Helmet } from 'react-helmet';
+import Tags from '../components/tags';
+import styled from 'styled-components';
+
+const Project = styled.section`
+  margin-bottom: 3em;
+`;
 
 export default function Projects({ data }) {
   const { siteMetadata } = data.site;
@@ -19,14 +25,26 @@ export default function Projects({ data }) {
         />
       </Helmet>
 
-      <h2 style={{ fontSize: '2em' }}>Projects</h2>
+      <h2 style={{ fontSize: '2em', marginBottom: '1.5em' }}>Projects</h2>
 
-      <section style={{ marginBottom: '2em' }}>
+      <Project>
         <h3>
           <OutboundLink href="https://github.com/testingrequired/reqlang">
             📄 Request Language (reqlang)
           </OutboundLink>
         </h3>
+
+        <Tags>
+          <Tags.Tag>rust</Tags.Tag>
+          <Tags.Tag>dsl</Tags.Tag>
+          <Tags.Tag>file-specification</Tags.Tag>
+          <Tags.Tag>http-messages</Tags.Tag>
+          <Tags.Tag>language-servers</Tags.Tag>
+          <Tags.Tag>vs-code-extensions</Tags.Tag>
+          <Tags.Tag>developer-tools</Tags.Tag>
+          <Tags.Tag>testing-tools</Tags.Tag>
+        </Tags>
+
         <p>
           A file format specification for defining HTTP requests, response
           assertions, and associated data/configuration in "request files".
@@ -83,27 +101,45 @@ export default function Projects({ data }) {
             A toy transpiler for reqlang-expr to typescript.
           </li>
         </ul>
-      </section>
+      </Project>
 
-      <section>
+      <Project>
         <h3>
           <OutboundLink href="https://github.com/egonlang/egonlang">
             👻 Egon
           </OutboundLink>
         </h3>
 
+        <Tags>
+          <Tags.Tag>rust</Tags.Tag>
+          <Tags.Tag>programming-languages</Tags.Tag>
+          <Tags.Tag>type-systems</Tags.Tag>
+          <Tags.Tag>language-server</Tags.Tag>
+          <Tags.Tag>vs-code-extension</Tags.Tag>
+        </Tags>
+
         <p>
           A (toy) statically typed interpreted language for learning
           type-checking and type inference.
         </p>
-      </section>
+      </Project>
 
-      <section>
+      <Project>
         <h3>
           <OutboundLink href="https://github.com/kyleect/locks">
             🔓 Locks
           </OutboundLink>
         </h3>
+
+        <Tags>
+          <Tags.Tag>rust</Tags.Tag>
+          <Tags.Tag>typescript</Tags.Tag>
+          <Tags.Tag>programming-languages</Tags.Tag>
+          <Tags.Tag>compilers</Tags.Tag>
+          <Tags.Tag>language-server</Tags.Tag>
+          <Tags.Tag>vs-code-extension</Tags.Tag>
+          <Tags.Tag>wasm</Tags.Tag>
+        </Tags>
 
         <p>
           A toy bytecode VM language branched from{' '}
@@ -169,19 +205,42 @@ export default function Projects({ data }) {
             Include several changes to syntax from the original project.
           </li>
         </ul>
-      </section>
+      </Project>
 
-      <section>
+      <Project>
         <h3>
           <OutboundLink href="https://github.com/testingrequired/attempted">
-            Attempted
+            🧯 Attempted
           </OutboundLink>
         </h3>
 
-        <p>Typed error handling for function calls in Typescript.</p>
-      </section>
+        <Tags>
+          <Tags.Tag>typescript</Tags.Tag>
+          <Tags.Tag>library</Tags.Tag>
+          <Tags.Tag>error-handling</Tags.Tag>
+        </Tags>
 
-      <section>
+        <p>Typed error handling for function calls in Typescript.</p>
+      </Project>
+
+      <Project>
+        <h3>
+          <OutboundLink href="https://github.com/testingrequired/bespin">
+            🌌 Bespin
+          </OutboundLink>
+        </h3>
+
+        <Tags>
+          <Tags.Tag>typescript</Tags.Tag>
+          <Tags.Tag>framework</Tags.Tag>
+          <Tags.Tag>testing-tools</Tags.Tag>
+          <Tags.Tag>test-frameworks</Tags.Tag>
+        </Tags>
+
+        <p>A framework for implementing test frameworks.</p>
+      </Project>
+
+      <Project>
         <h3>
           <OutboundLink href="https://github.com/testingrequired/the-testing-book">
             📕 The Testing Book
@@ -189,17 +248,7 @@ export default function Projects({ data }) {
         </h3>
 
         <p>A (work in progress) software engineering guide to testing.</p>
-      </section>
-
-      <section>
-        <h3>
-          <OutboundLink href="https://github.com/testingrequired/bespin">
-            🌌 bespin
-          </OutboundLink>
-        </h3>
-
-        <p>A framework for test frameworks writting in Typescript.</p>
-      </section>
+      </Project>
     </Layout>
   );
 }
