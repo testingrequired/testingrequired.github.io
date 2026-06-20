@@ -7,18 +7,17 @@ const NavMenuStyle = styled(InlineList)`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  font-size: 1.3em;
+  font-size: ${props => (props.fullscreen ? `1.2em` : `1.05em`)};
   margin: 0;
-  margin-top: 0.5em;
 
   @media (max-width: 650px) {
     font-size: 1em;
   }
 `;
 
-export default function NavMenu({ children }) {
+export default function NavMenu({ children, fullscreen }) {
   return (
-    <NavMenuStyle>
+    <NavMenuStyle fullscreen={fullscreen}>
       {children.map((child, i) => (
         <li key={i}>{child}</li>
       ))}

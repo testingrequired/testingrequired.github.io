@@ -38,7 +38,11 @@ export default ({ children }) => (
             </Helmet>
 
             <Header fullscreen={location.pathname === '/'}>
-              <h1>
+              <h1
+                style={{
+                  marginBottom: location.pathname === '/' ? '0.5em' : '0.25em',
+                }}
+              >
                 <Link to="/">
                   <span>
                     <Icon /> {site.siteMetadata.title}
@@ -46,7 +50,7 @@ export default ({ children }) => (
                 </Link>
               </h1>
 
-              <NavMenu>
+              <NavMenu fullscreen={location.pathname === '/'}>
                 <Link to="/blog">Blog</Link>
                 <Link to="/projects">Projects</Link>
                 <Link to="/talks">Talks</Link>

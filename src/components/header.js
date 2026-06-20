@@ -5,7 +5,7 @@ export default styled.div`
   color: #fff;
   margin-bottom: 0;
   text-align: center;
-  padding: 1em;
+  padding-top: 1em;
   height: ${props => (props.fullscreen ? `100vh` : `inherit`)};
   display: flex;
   flex-direction: column;
