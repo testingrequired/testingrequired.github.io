@@ -12,6 +12,9 @@ import './base.css';
 import NavMenu from '../components/nav-menu';
 import Icon from '../components/icon';
 
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
+
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
