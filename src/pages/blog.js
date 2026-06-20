@@ -17,6 +17,10 @@ export default function Index({ data }) {
         <title>{title}</title>
 
         <meta property="og:title" content={title} />
+        <meta
+          property="og:description"
+          content="My thoughts on various topics"
+        />
       </Helmet>
 
       {posts

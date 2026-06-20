@@ -12,10 +12,7 @@ const NotFoundPage = ({ data }) => {
         <title>{title}</title>
 
         <meta property="og:title" content={title} />
-        <meta
-          property="og:description"
-          content="Information about myself and my background"
-        />
+        <meta property="og:description" content="Page was not found" />
       </Helmet>
 
       <div>

@@ -13,7 +13,10 @@ export default function Talks({ data }) {
         <title>{title}</title>
 
         <meta property="og:title" content={title} />
-        <meta property="og:description" content="A list of talks I've given" />
+        <meta
+          property="og:description"
+          content="Some stuff I've talked about"
+        />
       </Helmet>
 
       <h2 style={{ fontSize: '2em' }}>Talks</h2>

@@ -19,10 +19,7 @@ export default function Projects({ data }) {
         <title>{title}</title>
 
         <meta property="og:title" content={title} />
-        <meta
-          property="og:description"
-          content="Projects I'm currently working on"
-        />
+        <meta property="og:description" content="Some stuff that I've built" />
       </Helmet>
 
       <h2 style={{ fontSize: '2em', marginBottom: '1.5em' }}>Projects</h2>
