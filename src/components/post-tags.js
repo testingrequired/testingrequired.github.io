@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import InlineList from './inline-list';
 
 const PostTagsStyle = styled(InlineList)`
-  margin-left: 0;
+  margin: 0;
   padding: 0;
 
   &:before {
