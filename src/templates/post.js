@@ -27,7 +27,21 @@ export default function Template({ data }) {
         <div className="blog-post">
           <h1>{title}</h1>
 
-          <p>{date}</p>
+          <p
+            style={{
+              fontSize: '1.1em',
+              marginBottom: '2em',
+            }}
+          >
+            <span>📅</span>{' '}
+            <span
+              style={{
+                fontStyle: 'italic',
+              }}
+            >
+              {date}
+            </span>
+          </p>
 
           <div
             className="blog-post-content"
