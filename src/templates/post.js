@@ -6,51 +6,6 @@ import moment from 'moment';
 import PostTags from '../components/post-tags';
 import styled from 'styled-components';
 
-/**
- * @type {React.FC<{tags: string[], date: Date}>}
- */
-const DateAndTags = ({ tags, date }) => {
-  const formattedDate = moment(date).format('MMMM Do YYYY');
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        margin: '1em 0 1em 0',
-      }}
-    >
-      <p
-        style={{
-          fontSize: '0.9em',
-          margin: 0,
-        }}
-      >
-        <span style={{ fontWeight: 'bold' }}>Published: </span>{' '}
-        <span
-          style={{
-            fontStyle: 'italic',
-          }}
-        >
-          {formattedDate}
-        </span>
-      </p>
-
-      {tags && <PostTags tags={tags} />}
-    </div>
-  );
-};
-
-const Divider = styled.hr`
-  margin: 2.5 0;
-`;
-
-const PostTitle = styled.h1`
-  margin-bottom: 1em;
-  font-size: 2em;
-`;
-
 export default function Template({ data }) {
   const { siteMetadata } = data.site;
   const { frontmatter, html, excerpt, tableOfContents } = data.markdownRemark;
@@ -112,4 +67,56 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0 1em 0;
+`;
+
+/**
+ * @type {React.FC<{date: Date}>}
+ */
+const PostDate = ({ date }) => {
+  const formattedDate = moment(date).format('MMMM Do YYYY');
+
+  return (
+    <p
+      style={{
+        fontSize: '0.9em',
+        margin: 0,
+      }}
+    >
+      <span style={{ fontWeight: 'bold' }}>Published: </span>{' '}
+      <span
+        style={{
+          fontStyle: 'italic',
+        }}
+      >
+        {formattedDate}
+      </span>
+    </p>
+  );
+};
+
+/**
+ * @type {React.FC<{tags: string[], date: Date}>}
+ */
+const DateAndTags = ({ tags, date }) => (
+  <Container>
+    <PostDate date={date} />
+
+    {tags && <PostTags tags={tags} />}
+  </Container>
+);
+
+const Divider = styled.hr`
+  margin: 2.5 0;
+`;
+
+const PostTitle = styled.h1`
+  margin-bottom: 1em;
+  font-size: 2em;
 `;
