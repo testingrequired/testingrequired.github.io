@@ -2,11 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from '../layouts';
+import moment from 'moment';
 
 export default function Template({ data }) {
   const { siteMetadata } = data.site;
   const { frontmatter, html, excerpt } = data.markdownRemark;
   const { title, date } = frontmatter;
+
+  const formattedDate = moment(date).format('MMMM Do YYYY');
 
   return (
     <Layout>
@@ -39,7 +42,7 @@ export default function Template({ data }) {
                 fontStyle: 'italic',
               }}
             >
-              {date}
+              {formattedDate}
             </span>
           </p>
 

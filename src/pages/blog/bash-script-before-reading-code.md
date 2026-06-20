@@ -1,7 +1,7 @@
 ---
 path: /blog/bash-script-before-reading-code
 title: 'The Bash Script I Use Before Reading Any Code'
-date: '2026-06-19'
+date: 2026-06-19
 ---
 
 I saw this awesome blog post [The Git Commands I Run Before Reading Any Code](https://piechowski.io/post/git-commands-before-reading-code/) detailing some git commands to help you navigate a new code base. Well, I decided to make a wrapper bash script around those commands.

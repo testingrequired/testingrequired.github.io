@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 import Layout from '../layouts';
 import { Helmet } from 'react-helmet';
+import moment from 'moment';
 
 export default function Index({ data }) {
   const { siteMetadata } = data.site;
@@ -20,13 +21,18 @@ export default function Index({ data }) {
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => {
+          const formattedDate = moment(post.frontmatter.date).format(
+            'MMMM Do YYYY'
+          );
+
           return (
             <div key={post.id}>
               <h2>
                 <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
               </h2>
               <p>
-                {post.frontmatter.date} &mdash; {post.excerpt}
+                <span style={{ fontStyle: 'italic' }}>{formattedDate}</span>{' '}
+                &mdash; {post.excerpt}
               </p>
             </div>
           );
