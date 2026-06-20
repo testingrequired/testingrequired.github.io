@@ -21,18 +21,16 @@ export default function Projects({ data }) {
 
       <h2 style={{ fontSize: '2em' }}>Projects</h2>
 
-      <section>
+      <section style={{ marginBottom: '2em' }}>
         <h3>
           <OutboundLink href="https://github.com/testingrequired/reqlang">
             📄 Request Language (reqlang)
           </OutboundLink>
         </h3>
-
         <p>
           A file format specification for defining HTTP requests, response
           assertions, and associated data/configuration in "request files".
         </p>
-
         <ul>
           <li>
             Declare what prompts, secrets, and environment specific variables a
@@ -61,16 +59,24 @@ export default function Projects({ data }) {
             language server also provides language diagnostics.
           </li>
         </ul>
-      </section>
 
-      <section>
-        <h3>
-          <OutboundLink href="https://github.com/testingrequired/reqlang">
-            📕 The Testing Book
-          </OutboundLink>
-        </h3>
+        <h4>Tools</h4>
 
-        <p>A (work in progress) software engineering guide to testing.</p>
+        <ul>
+          <li>
+            <a href="https://github.com/testingrequired/reqlang-web-client">
+              reqlang-web-client
+            </a>{' '}
+            A web/desktop HTTP REST client for reqlang files.
+          </li>
+          <li>
+            <a href="https://github.com/testingrequired/reqlang-expr">
+              reqlang-expr
+            </a>{' '}
+            A bytecode interpreted language powering reqlang's templating
+            engine.
+          </li>
+        </ul>
       </section>
 
       <section>
@@ -157,6 +163,16 @@ export default function Projects({ data }) {
             Include several changes to syntax from the original project.
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h3>
+          <OutboundLink href="https://github.com/testingrequired/the-testing-book">
+            📕 The Testing Book
+          </OutboundLink>
+        </h3>
+
+        <p>A (work in progress) software engineering guide to testing.</p>
       </section>
 
       <section>
