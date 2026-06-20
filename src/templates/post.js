@@ -50,9 +50,12 @@ export default function Template({ data }) {
           property="og:title"
           content={`${title} - ${siteMetadata.title}`}
         />
+        <meta property="description" content={excerpt} />
         <meta property="og:description" content={excerpt} />
 
         <meta property="og:type" content="article" />
+        <meta property="author" content="Kylee Tilley" />
+        <meta property="keywords" content={tags.join(',')} />
         <meta property="article:author" content="Kylee Tilley" />
       </Helmet>
 
