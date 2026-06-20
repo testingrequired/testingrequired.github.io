@@ -76,6 +76,12 @@ export default function Projects({ data }) {
             A bytecode interpreted language powering reqlang's templating
             engine.
           </li>
+          <li>
+            <a href="https://github.com/testingrequired/reqlang-expr-tspl">
+              reqlang-expr-tspl
+            </a>{' '}
+            A toy transpiler for reqlang-expr to typescript.
+          </li>
         </ul>
       </section>
 
@@ -163,6 +169,16 @@ export default function Projects({ data }) {
             Include several changes to syntax from the original project.
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h3>
+          <OutboundLink href="https://github.com/testingrequired/attempted">
+            Attempted
+          </OutboundLink>
+        </h3>
+
+        <p>Typed error handling for function calls in Typescript.</p>
       </section>
 
       <section>
