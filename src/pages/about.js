@@ -108,6 +108,14 @@ export default function About({ data }) {
           >
             <li>
               <OutboundLink
+                href="https://github.com/kyleect"
+                style={{ textDecoration: 'none' }}
+              >
+                🧑‍💻 github.com/kyleect
+              </OutboundLink>
+            </li>
+            <li>
+              <OutboundLink
                 href="https://github.com/testingrequired"
                 style={{ textDecoration: 'none' }}
               >
@@ -120,7 +128,7 @@ export default function About({ data }) {
                 href="https://www.linkedin.com/in/kyleetilley/"
                 style={{ textDecoration: 'none' }}
               >
-                👔 in/kyleetilley
+                👔 linkedin/kyleetilley
               </OutboundLink>
             </li>
 
