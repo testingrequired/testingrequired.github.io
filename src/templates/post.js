@@ -18,6 +18,7 @@ export default function Template({ data }) {
       style={{
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
         margin: '1em 0 1em 0',
       }}
     >
