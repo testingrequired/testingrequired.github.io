@@ -2,6 +2,7 @@
 path: /blog/modern-page-objects
 title: Modern Page Objects
 date: 2018-03-23
+tags: ['browser-automation', 'page-objects']
 ---
 
 The page object model is a pattern for abstracting defining and interacting with components in a GUI.

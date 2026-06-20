@@ -2,6 +2,7 @@
 path: /blog/unit-testing-required
 title: Unit Testing Required
 date: 2018-01-26
+tags: ['testing', 'unit-tests']
 ---
 
 Its been my experience that most companies do not practice unit testing at all. Sometimes its an Agile environment where devs are pushing to increase velocity so they skip writing unit tests offloading the responsibility to functional testing via Selenium. Other times devs just refuse to write any tests because management doesn't make them. The result is the same however. Poorly written code, increasingly complex testing scenarios and difficult deployments. These are all red flags that you aren't testing the write things in the right ways.

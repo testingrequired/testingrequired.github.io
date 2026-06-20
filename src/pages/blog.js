@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import Layout from '../layouts';
 import { Helmet } from 'react-helmet';
 import moment from 'moment';
+import PostTags from '../components/post-tags';
 
 export default function Index({ data }) {
   const { siteMetadata } = data.site;
@@ -26,14 +27,19 @@ export default function Index({ data }) {
           );
 
           return (
-            <div key={post.id}>
+            <div key={post.id} style={{ marginBottom: '2em' }}>
               <h2>
                 <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
               </h2>
+
               <p>
                 <span style={{ fontStyle: 'italic' }}>{formattedDate}</span>{' '}
                 &mdash; {post.excerpt}
               </p>
+
+              {post.frontmatter.tags && (
+                <PostTags tags={post.frontmatter.tags} />
+              )}
             </div>
           );
         })}
@@ -51,6 +57,7 @@ export const pageQuery = graphql`
             title
             date
             path
+            tags
           }
         }
       }

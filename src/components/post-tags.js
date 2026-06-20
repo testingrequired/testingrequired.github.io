@@ -3,10 +3,9 @@ import styled from 'styled-components';
 
 import InlineList from './inline-list';
 
-const TagsStyle = styled(InlineList)`
+const PostTagsStyle = styled(InlineList)`
   margin-left: 0;
   padding: 0;
-  margin: 1em 0 2em 0;
 
   &:before {
     content: 'Tags:';
@@ -18,7 +17,6 @@ const TagsStyle = styled(InlineList)`
   li {
     font-size: 0.9em;
     margin-right: 0;
-    cursor: default;
   }
 
   li:before {
@@ -38,14 +36,16 @@ function Tag({ children }) {
   return <>{children}</>;
 }
 
-export default function Tags({ children }) {
+export default function PostTags({ tags }) {
   return (
-    <TagsStyle>
-      {children?.map((child, i) => (
-        <li key={i}>{child}</li>
+    <PostTagsStyle>
+      {tags.map((tag, i) => (
+        <li key={i}>
+          <a href={`/blog/tags/${tag}`}>{tag}</a>
+        </li>
       ))}
-    </TagsStyle>
+    </PostTagsStyle>
   );
 }
 
-Tags.Tag = Tag;
+PostTags.Tag = Tag;

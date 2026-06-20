@@ -2,6 +2,7 @@
 path: /blog/testing-cloudwatch-alarms
 title: Testing Cloudwatch Alarms
 date: 2018-07-09
+tags: ['testing', 'aws']
 ---
 
 ## The Problem

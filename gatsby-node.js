@@ -22,6 +22,7 @@ async function makePostPages(graphql, glob, createPage, template) {
           node {
             frontmatter {
               path
+              tags
             }
           }
         }
@@ -41,7 +42,33 @@ async function makePostPages(graphql, glob, createPage, template) {
     createPage({
       path: node.frontmatter.path,
       component: template,
-      context: {}, // additional data can be passed via context
+      context: {
+        tags: node.frontmatter.tags || [],
+      }, // additional data can be passed via context
+    });
+  });
+
+  const tagMap = {};
+
+  // Build a map of tag → array of post paths
+  posts.forEach(({ node }) => {
+    const tags = node.frontmatter.tags || [];
+    tags.forEach(tag => {
+      if (!tagMap[tag]) tagMap[tag] = [];
+      tagMap[tag].push(node.frontmatter.path);
+    });
+  });
+
+  const tagTemplate = path.resolve(`src/templates/tag.js`);
+
+  Object.keys(tagMap).forEach(tag => {
+    createPage({
+      path: `/blog/tags/${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`,
+      component: tagTemplate,
+      context: {
+        tag,
+        posts: tagMap[tag],
+      },
     });
   });
 }

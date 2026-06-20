@@ -3,11 +3,12 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from '../layouts';
 import moment from 'moment';
+import PostTags from '../components/post-tags';
 
 export default function Template({ data }) {
   const { siteMetadata } = data.site;
   const { frontmatter, html, excerpt } = data.markdownRemark;
-  const { title, date } = frontmatter;
+  const { title, date, tags } = frontmatter;
 
   const formattedDate = moment(date).format('MMMM Do YYYY');
 
@@ -28,7 +29,9 @@ export default function Template({ data }) {
 
       <div className="blog-post-container">
         <div className="blog-post">
-          <h1>{title}</h1>
+          <h1 style={{ marginBottom: tags ? 0 : '0.5em' }}>{title}</h1>
+
+          {tags && <PostTags tags={tags} />}
 
           <p
             style={{
@@ -63,6 +66,7 @@ export const pageQuery = graphql`
       frontmatter {
         date
         title
+        tags
       }
     }
     site {
