@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: 'Testing Required',
+    siteUrl: 'https://www.testingrequired.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-open-graph-images',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -5,7 +5,9 @@ import Layout from '../layouts';
 import moment from 'moment';
 import PostTags from '../components/post-tags';
 
-export default function Template({ data }) {
+const domain = 'http://localhost:8000';
+
+export default function Template({ data, pageContext }) {
   const { siteMetadata } = data.site;
   const { frontmatter, html, excerpt } = data.markdownRemark;
   const { title, date, tags } = frontmatter;
@@ -16,6 +18,19 @@ export default function Template({ data }) {
     <Layout>
       <Helmet>
         <title>{`${title} - ${siteMetadata.title}`}</title>
+
+        <meta
+          property="og:image"
+          content={domain + pageContext.openGraphImage.path}
+        />
+        <meta
+          property="og:image:width"
+          content={pageContext.openGraphImage.size.width}
+        />
+        <meta
+          property="og:image:height"
+          content={pageContext.openGraphImage.size.height}
+        />
 
         <meta
           property="og:title"
@@ -32,6 +47,8 @@ export default function Template({ data }) {
           <h1 style={{ marginBottom: tags ? 0 : '0.5em' }}>{title}</h1>
 
           {tags && <PostTags tags={tags} />}
+
+          <pre>{JSON.stringify(pageContext, null, 2)}</pre>
 
           <p
             style={{

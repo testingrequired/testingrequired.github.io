@@ -1,4 +1,5 @@
 const path = require('path');
+const { createOpenGraphImage } = require('gatsby-plugin-open-graph-images');
 
 exports.createPages = async ({ actions, graphql }) => {
   const postTemplate = path.resolve(`src/templates/post.js`);
@@ -20,6 +21,7 @@ async function makePostPages(graphql, glob, createPage, template) {
       ) {
         edges {
           node {
+            id
             frontmatter {
               path
               tags
@@ -37,13 +39,26 @@ async function makePostPages(graphql, glob, createPage, template) {
   const posts = result.data.allMarkdownRemark.edges;
 
   posts.forEach(post => {
-    const { node } = post;
+    const { node, id } = post;
 
     createPage({
       path: node.frontmatter.path,
       component: template,
       context: {
+        id,
         tags: node.frontmatter.tags || [],
+        openGraphImage: createOpenGraphImage(createPage, {
+          path: `/og-image/post-${post.id}.png`,
+          component: path.resolve(`src/templates/post.og-image.js`),
+          size: {
+            width: 400,
+            height: 50,
+          },
+          waitCondition: 'networkidle0',
+          context: {
+            description: 'a image created with gatsby-plugin-open-graph-images',
+          },
+        }),
       }, // additional data can be passed via context
     });
   });
