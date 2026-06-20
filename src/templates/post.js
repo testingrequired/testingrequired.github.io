@@ -6,14 +6,13 @@ import moment from 'moment';
 import PostTags from '../components/post-tags';
 import styled from 'styled-components';
 
-export default function Template({ data }) {
-  const { siteMetadata } = data.site;
-  const { frontmatter, html, excerpt, tableOfContents } = data.markdownRemark;
-  const { title, date, tags } = frontmatter;
-
+/**
+ * @type {React.FC<{tags: string[], date: Date}>}
+ */
+const DateAndTags = ({ tags, date }) => {
   const formattedDate = moment(date).format('MMMM Do YYYY');
 
-  const dateAndTags = (
+  return (
     <div
       style={{
         display: 'flex',
@@ -41,6 +40,21 @@ export default function Template({ data }) {
       {tags && <PostTags tags={tags} />}
     </div>
   );
+};
+
+const Divider = styled.hr`
+  margin: 2.5 0;
+`;
+
+const PostTitle = styled.h1`
+  margin-bottom: 1em;
+  font-size: 2em;
+`;
+
+export default function Template({ data }) {
+  const { siteMetadata } = data.site;
+  const { frontmatter, html, excerpt, tableOfContents } = data.markdownRemark;
+  const { title, date, tags } = frontmatter;
 
   return (
     <Layout>
@@ -56,26 +70,26 @@ export default function Template({ data }) {
 
         <meta property="og:type" content="article" />
         <meta property="author" content="Kylee Tilley" />
-        <meta property="keywords" content={tags.join(',')} />
+        <meta property="keywords" content={tags?.join(',') ?? ''} />
         <meta property="article:author" content="Kylee Tilley" />
       </Helmet>
 
       <div className="blog-post-container">
         <div className="blog-post">
-          <h1 style={{ marginBottom: tags ? 0 : '0.5em' }}>{title}</h1>
+          <PostTitle>{title}</PostTitle>
 
-          {dateAndTags}
+          <DateAndTags tags={tags} date={date} />
 
-          <hr style={{ margin: '2.5em 0' }} />
+          <Divider />
 
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
 
-          <hr style={{ margin: '2.5em 0' }} />
+          <Divider />
 
-          {dateAndTags}
+          <DateAndTags tags={tags} date={date} />
         </div>
       </div>
     </Layout>
