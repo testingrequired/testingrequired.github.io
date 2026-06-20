@@ -118,5 +118,6 @@ const Divider = styled.hr`
 
 const PostTitle = styled.h1`
   margin-bottom: 1em;
-  font-size: 2em;
+  font-size: 2.1em;
+  letter-spacing: -0.05em;
 `;

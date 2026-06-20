@@ -5,6 +5,7 @@ import Layout from '../layouts';
 import { Helmet } from 'react-helmet';
 import moment from 'moment';
 import PostTags from '../components/post-tags';
+import styled from 'styled-components';
 
 export default function Index({ data }) {
   const { siteMetadata } = data.site;
@@ -23,33 +24,42 @@ export default function Index({ data }) {
         />
       </Helmet>
 
-      {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
-        .map(({ node: post }) => {
-          const formattedDate = moment(post.frontmatter.date).format(
-            'MMMM Do YYYY'
-          );
+      <PostList>
+        {posts
+          .filter(post => post.node.frontmatter.title.length > 0)
+          .map(({ node: post }) => {
+            const formattedDate = moment(post.frontmatter.date).format(
+              'MMMM Do YYYY'
+            );
 
-          return (
-            <div key={post.id} style={{ marginBottom: '2em' }}>
-              <h2>
-                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-              </h2>
+            return (
+              <div key={post.id} style={{ marginBottom: '2em' }}>
+                <h2 style={{ fontSize: '1.2em', marginBottom: '1em' }}>
+                  <Link to={post.frontmatter.path}>
+                    {post.frontmatter.title}
+                  </Link>
+                </h2>
 
-              <p>
-                <span style={{ fontStyle: 'italic' }}>{formattedDate}</span>{' '}
-                &mdash; {post.excerpt}
-              </p>
+                <p style={{ marginBottom: '1em' }}>
+                  <span style={{ fontStyle: 'italic' }}>{formattedDate}</span>{' '}
+                  &mdash; {post.excerpt}
+                </p>
 
-              {post.frontmatter.tags && (
-                <PostTags tags={post.frontmatter.tags} />
-              )}
-            </div>
-          );
-        })}
+                {post.frontmatter.tags && (
+                  <PostTags tags={post.frontmatter.tags} />
+                )}
+              </div>
+            );
+          })}
+      </PostList>
     </Layout>
   );
 }
+
+const PostList = styled.div`
+  margin-top: 1em;
+`;
+
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
