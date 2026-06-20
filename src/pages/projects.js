@@ -29,8 +29,9 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          📄{' '}
           <OutboundLink href="https://github.com/testingrequired/reqlang">
-            📄 Request Language (reqlang)
+            Request Language (reqlang)
           </OutboundLink>
         </h3>
 
@@ -105,8 +106,37 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          🧱{' '}
+          <OutboundLink href="https://github.com/kyleect/rust-backend-web-frontend">
+            rust-backend-web-frontend
+          </OutboundLink>
+        </h3>
+
+        <Tags>
+          <Tags.Tag>rust</Tags.Tag>
+          <Tags.Tag>typescript</Tags.Tag>
+          <Tags.Tag>react</Tags.Tag>
+          <Tags.Tag>project-template</Tags.Tag>
+          <Tags.Tag>webview</Tags.Tag>
+        </Tags>
+
+        <p>
+          A project template for create tiny single binary web applications.
+        </p>
+
+        <ul>
+          <li>Rust/Axum API Backend</li>
+          <li>SPA frontend</li>
+          <li>Optionally served through a native webview</li>
+          <li>Very small single binary builds</li>
+        </ul>
+      </Project>
+
+      <Project>
+        <h3>
+          👻{' '}
           <OutboundLink href="https://github.com/egonlang/egonlang">
-            👻 Egon
+            Egon
           </OutboundLink>
         </h3>
 
@@ -126,8 +156,9 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          🔓{' '}
           <OutboundLink href="https://github.com/kyleect/locks">
-            🔓 Locks
+            Locks
           </OutboundLink>
         </h3>
 
@@ -209,8 +240,9 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          🧯{' '}
           <OutboundLink href="https://github.com/testingrequired/attempted">
-            🧯 Attempted
+            Attempted
           </OutboundLink>
         </h3>
 
@@ -225,8 +257,9 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          🌌{' '}
           <OutboundLink href="https://github.com/testingrequired/bespin">
-            🌌 Bespin
+            Bespin
           </OutboundLink>
         </h3>
 
@@ -242,8 +275,9 @@ export default function Projects({ data }) {
 
       <Project>
         <h3>
+          📕{' '}
           <OutboundLink href="https://github.com/testingrequired/the-testing-book">
-            📕 The Testing Book
+            The Testing Book
           </OutboundLink>
         </h3>
 
