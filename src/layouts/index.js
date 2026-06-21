@@ -37,7 +37,7 @@ export default ({ children }) => (
               <meta property="og:url" content={location.href} />
             </Helmet>
 
-            <Header fullscreen={location.pathname === '/'}>
+            <Header fullscreen={location.pathname === '/'} role="banner">
               <h1
                 style={{
                   marginBottom: location.pathname === '/' ? '0.5em' : '0.25em',
@@ -58,7 +58,9 @@ export default ({ children }) => (
               </NavMenu>
             </Header>
 
-            {location.pathname === '/' ? null : <Content>{children}</Content>}
+            {location.pathname === '/' ? null : (
+              <Content role="main">{children}</Content>
+            )}
           </Site>
         )}
       </Location>

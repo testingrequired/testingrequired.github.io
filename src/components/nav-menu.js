@@ -17,7 +17,7 @@ const NavMenuStyle = styled(InlineList)`
 
 export default function NavMenu({ children, fullscreen }) {
   return (
-    <NavMenuStyle fullscreen={fullscreen}>
+    <NavMenuStyle fullscreen={fullscreen} role="navigation">
       {children.map((child, i) => (
         <li key={i}>{child}</li>
       ))}
